@@ -1,6 +1,7 @@
-<<div class="container">
+<div class="container">
     <h1>Users</h1>
-    <div class="table-responsive">
+    <button class="btn btn-primary" routerLink="./add">Add a user</button>
+    <div *ngIf="users.length != 0" class="table-responsive">
         <table class="table">
             <thead>
                 <tr>
@@ -11,13 +12,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Anna</td>
-                    <td>Pitt</td>
-                    <td>35</td>
+                <tr *ngFor="let user of users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td><span class="glyphicon glyphicon-edit"></span></td>
+                    <td><span class="glyphicon glyphicon-remove"></span></td>
                 </tr>
             </tbody>
         </table>
     </div>
-    </div>
+</div>
