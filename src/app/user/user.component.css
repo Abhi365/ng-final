@@ -1,3 +1,9 @@
-.glyphicon-refresh {
-    font-size: 35px;
+.glyphicon-remove {
+    font-size: 25px;
+    color: red;
+}
+
+.glyphicon-edit {
+    color: darkblue;
+    font-size: 25px;
 }

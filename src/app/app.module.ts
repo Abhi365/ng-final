@@ -12,6 +12,7 @@ import { Routing } from './routing';
 import { UserRouting } from './user/user.routing';
 import { HomeComponent } from './home/home.component';
 import { UserService } from './user/user.service';
+import { PostService } from './posts/post.service';
 import { PreventUnsavedChangesGuardService } from './user/new-user/prevent-unsaved-changes-guard.service';
 import { NewUserComponent } from './user/new-user/new-user.component';
 
@@ -31,10 +32,11 @@ import { NewUserComponent } from './user/new-user/new-user.component';
     ReactiveFormsModule,
     HttpModule,
     JsonpModule,
-    Routing,
-    UserRouting
+    UserRouting,
+    Routing
+    
   ],
-  providers: [UserService,PreventUnsavedChangesGuardService],
+  providers: [UserService,PreventUnsavedChangesGuardService,PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

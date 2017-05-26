@@ -8,5 +8,6 @@ export const UserRouting = RouterModule.forChild([
     {path:'user',  component: UserComponent},
     {path:'user/add',  component: NewUserComponent,
     canDeactivate: [ PreventUnsavedChangesGuardService]},
-    {path:'**', component: NotfoundComponent},
+    {path:'user/edit/:id',  component: NewUserComponent,
+    canDeactivate: [ PreventUnsavedChangesGuardService]},
 ]);

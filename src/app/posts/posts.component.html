@@ -1,3 +1,42 @@
-<p>
-  posts works!
-</p>
+<div class="container">
+    <h2>Posts</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <select class="form-control" #u (change)="reloadposts(u.value)">
+      <option value=" ">Choose a user</option>
+    <option  *ngFor="let user of users" value="{{user.id}}">{{user.name}}</option>
+  </select>
+            </div>
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <i *ngIf="isLoadingPosts" class="fa fa-spinner fa-spin fa-3x "></i>
+            <div class="list-group" *ngFor="let post of posts">
+                <a class="list-group-item" [class.active]="currentpost==post" (click)="view(post)">{{post.title}}</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default" *ngIf="currentpost">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{currentpost.title}}</h3>
+                </div>
+                <div class="panel-body">
+                    <p>{{currentpost.body}}</p>
+                    <i *ngIf="isLoadingComment" class="fa fa-spinner fa-spin fa-3x "></i>
+                    <div class="media" *ngFor="let comment of comments">
+                        <div class="media-left media-middle">
+                            <img src="http://lorempixel.com/80/80/people?random=comment.id" class="media-object img-rounded" style="width:60px">
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">{{comment.name}}</h4>
+                            <p>{{comment.body}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
